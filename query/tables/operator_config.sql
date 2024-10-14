@@ -9,4 +9,5 @@ GO
 INSERT INTO OperatorConfig VALUES
 	('login', NULL), 
 	('password', NULL),
-	('id_OW', NULL)
+	('id_OW', NULL),
+	('id_SWD', NULL)
