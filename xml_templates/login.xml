@@ -1,0 +1,22 @@
+﻿<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:auth="http://xml.kamsoft.pl/ws/kaas/login_types">
+  <soapenv:Header />
+  <soapenv:Body>
+    <auth:login>
+      <auth:credentials>
+        <auth:item>
+          <auth:name>domain</auth:name>
+          <auth:value>
+            <auth:stringValue />
+          </auth:value>
+        </auth:item>
+        <auth:item>
+          <auth:name>login</auth:name>
+          <auth:value>
+            <auth:stringValue />
+          </auth:value>
+        </auth:item>
+      </auth:credentials>
+      <auth:password />
+    </auth:login>
+  </soapenv:Body>
+</soapenv:Envelope>
