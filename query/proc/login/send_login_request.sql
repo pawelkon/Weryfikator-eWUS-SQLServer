@@ -11,5 +11,8 @@ AS
 BEGIN
 	EXEC prepareLoginRequest @id_OW, @login, @pass, @request OUT
 
+	IF (SELECT dbo.checkSWDReq()) IS NOT NULL
+		EXEC insertSWDReqPart @request OUT
+
 	EXEC sendRequest @URL, @request, @response OUT
 END
