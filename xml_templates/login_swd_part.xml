@@ -1,0 +1,12 @@
+﻿<auth:item xmlns:auth="http://xml.kamsoft.pl/ws/kaas/login_types">
+  <auth:name>type</auth:name>
+  <auth:value>
+    <auth:stringValue>SWD</auth:stringValue>
+  </auth:value>
+</auth:item>
+<auth:item xmlns:auth="http://xml.kamsoft.pl/ws/kaas/login_types">
+  <auth:name>idntSwd</auth:name>
+  <auth:value>
+    <auth:stringValue />
+  </auth:value>
+</auth:item>
