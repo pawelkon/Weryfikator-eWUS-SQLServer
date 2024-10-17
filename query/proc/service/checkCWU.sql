@@ -17,8 +17,13 @@ BEGIN
 		(SELECT [Value] FROM ServiceConfig WHERE 
 			[Param] = 'ServiceBroker_URL')
 
-
-	EXEC [login] @session_id OUT, @token OUT
+	IF dbo.checkSessionActive() = 1
+	BEGIN
+		SET @session_id = (SELECT [session_id] FROM OperatorSession)
+		SET @token = (SELECT [token] FROM OperatorSession)
+	END
+	ELSE
+ 		EXEC [login] @session_id OUT, @token OUT
 
 	SET @request.modify('
 		insert attribute id {sql:variable("@session_id")} into
@@ -36,6 +41,7 @@ BEGIN
 	')
 
 	EXEC sendRequest @URL, @request, @response OUT
-
-	EXEC logout @session_id, @token, NULL
+	
+	IF dbo.checkSessionActive() = 0
+		EXEC logout @session_id, @token, NULL
 END
