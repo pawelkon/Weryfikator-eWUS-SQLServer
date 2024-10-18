@@ -32,19 +32,23 @@ Parametry:\
 W tabeli ServiceConfig należy wpisać adresy URL serwera autoryzacji i usługi.\
 Parametry:\
 **Auth_URL** - adres serwera autoryzacji\
-**ServiceBroker_URL** - adres serwera usługi\
+**ServiceBroker_URL** - adres serwera usługi 
+
 Aktualne adresy serwerów produkcyjnych: \
 serwer autoryzacji: https://ewus.nfz.gov.pl/ws-broker-server-ewus/services/Auth \
-serwer usługi: https://ewus.nfz.gov.pl/ws-broker-server-ewus/services/ServiceBroker \
+serwer usługi: https://ewus.nfz.gov.pl/ws-broker-server-ewus/services/ServiceBroker 
+
 Aktualne adresy testowych: \
 serwer autoryzacji: https://ewus.nfz.gov.pl/ws-broker-server-ewus-auth-test/services/Auth \
 serwer usługi: https://ewus.nfz.gov.pl/ws-broker-server-ewus-auth-test/services/ServiceBroker
 
 
 ## Używanie weryfikatora
-Do weryfikacji pojedyńczej osoby w systemie eWUŚ służy procedura **CheckCWU**, która przyjmuje dwa parametry: numer pesel w formie tekstowej oraz zmienną typu XML do zapisu informacji zwrotnej. Przed wywołaniem procedury CheckCWU należy rozpocząć sesję poprzez wywołanie procedury **BeginSession** (nie przyjmuje parametrów), a po zakończeniu sprawdzania ostatniej osoby, należy zakończyć sesję przez wywołanie **EndSession** (nie przyjmuje parametrów).\
-*Przykład:\
-DECLARE @response XML\
-EXEC BeginSession\
-EXEC checkCWU '79060804378', @response OUT\
-EXEC EndSession*
+Do weryfikacji pojedynczej osoby w systemie eWUŚ służy procedura **CheckCWU**, która przyjmuje dwa parametry: numer pesel w formie tekstowej oraz zmienną typu XML do zapisu informacji zwrotnej. Przed wywołaniem procedury CheckCWU należy rozpocząć sesję poprzez wywołanie procedury **BeginSession** (nie przyjmuje parametrów), a po zakończeniu sprawdzania ostatniej osoby, należy zakończyć sesję przez wywołanie **EndSession** (nie przyjmuje parametrów).\
+*Przykład:* \
+```
+DECLARE @response XML
+EXEC BeginSession
+EXEC checkCWU '79060804378', @response OUT
+EXEC EndSession
+```
